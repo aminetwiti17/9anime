@@ -1,0 +1,1236 @@
+{
+  "metadata": {
+    "title": "Routes GET Backend - AniStream API",
+    "description": "Liste complète de toutes les routes GET disponibles dans le backend",
+    "version": "1.0.0",
+    "generated_at": "2024-12-19T10:00:00.000Z",
+    "total_routes": 0
+  },
+  "routes": {
+    "direct_routes": {
+      "description": "Routes directes définies dans server.js (non versionnées)",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/health",
+          "description": "Health check endpoint",
+          "access": "Public",
+          "middlewares": [],
+          "parameters": {
+            "query": [],
+            "params": []
+          },
+          "response": {
+            "status": 200,
+            "format": "JSON",
+            "structure": {
+              "status": "string",
+              "timestamp": "string (ISO)",
+              "uptime": "number",
+              "environment": "string",
+              "database": "string"
+            }
+          },
+          "source_file": "backend/src/server.js:83"
+        },
+        {
+          "method": "GET",
+          "path": "/",
+          "description": "Root endpoint - API server info",
+          "access": "Public",
+          "middlewares": [],
+          "parameters": {
+            "query": [],
+            "params": []
+          },
+          "response": {
+            "status": 200,
+            "format": "JSON",
+            "structure": {
+              "message": "string",
+              "version": "string",
+              "status": "string",
+              "timestamp": "string (ISO)"
+            }
+          },
+          "source_file": "backend/src/server.js:94"
+        },
+        {
+          "method": "GET",
+          "path": "/favicon.ico",
+          "description": "Favicon endpoint",
+          "access": "Public",
+          "middlewares": [],
+          "parameters": {
+            "query": [],
+            "params": []
+          },
+          "response": {
+            "status": 204,
+            "format": "No content",
+            "structure": null
+          },
+          "source_file": "backend/src/server.js:104"
+        },
+        {
+          "method": "GET",
+          "path": "/anime/:slug/episodes",
+          "description": "Direct anime episodes route by slug (frontend compatibility)",
+          "access": "Public",
+          "middlewares": [],
+          "parameters": {
+            "query": [
+              {
+                "name": "page",
+                "type": "number",
+                "default": 1,
+                "required": false
+              },
+              {
+                "name": "limit",
+                "type": "number",
+                "default": 50,
+                "required": false
+              }
+            ],
+            "params": [
+              {
+                "name": "slug",
+                "type": "string",
+                "description": "Anime slug (case-insensitive)"
+              }
+            ]
+          },
+          "response": {
+            "status": 200,
+            "format": "JSON",
+            "structure": {
+              "success": "boolean",
+              "message": "string",
+              "data": "array",
+              "pagination": {
+                "current_page": "number",
+                "per_page": "number",
+                "total": "number",
+                "total_pages": "number"
+              },
+              "anime_info": {
+                "id": "string",
+                "title": "string",
+                "slug": "string"
+              }
+            }
+          },
+          "source_file": "backend/src/server.js:109",
+          "notes": "Case-insensitive slug search, filters by is_available: true"
+        },
+        {
+          "method": "GET",
+          "path": "/anime/:animeId/episodes",
+          "description": "Direct anime episodes route by ID or slug (frontend compatibility)",
+          "access": "Public",
+          "middlewares": [],
+          "parameters": {
+            "query": [
+              {
+                "name": "page",
+                "type": "number",
+                "default": 1,
+                "required": false
+              },
+              {
+                "name": "limit",
+                "type": "number",
+                "default": 50,
+                "required": false
+              }
+            ],
+            "params": [
+              {
+                "name": "animeId",
+                "type": "string",
+                "description": "Anime ID (ObjectId) or slug"
+              }
+            ]
+          },
+          "response": {
+            "status": 200,
+            "format": "JSON",
+            "structure": {
+              "success": "boolean",
+              "message": "string",
+              "data": "array",
+              "pagination": {
+                "current_page": "number",
+                "per_page": "number",
+                "total": "number",
+                "total_pages": "number"
+              },
+              "anime_info": {
+                "id": "string",
+                "title": "string",
+                "slug": "string"
+              }
+            }
+          },
+          "source_file": "backend/src/server.js:179",
+          "notes": "Accepts both ObjectId and slug, case-insensitive slug search, filters by is_available: true"
+        },
+        {
+          "method": "GET",
+          "path": "/api-docs",
+          "description": "API documentation endpoint",
+          "access": "Public",
+          "middlewares": [],
+          "parameters": {
+            "query": [],
+            "params": []
+          },
+          "response": {
+            "status": 200,
+            "format": "JSON",
+            "structure": {
+              "message": "string",
+              "version": "string"
+            }
+          },
+          "source_file": "backend/src/server.js:275"
+        }
+      ]
+    },
+    "api_routes": {
+      "description": "Routes API versionnées (/api/v1/*)",
+      "episodes": {
+        "description": "Routes pour la gestion des épisodes",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v1/episodes/latest",
+            "description": "Get latest episodes",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 20,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number"
+              }
+            },
+            "source_file": "backend/src/routes/episodeRoutes.js:10",
+            "notes": "Filters by is_available: true, sorts by air_date desc, createdAt desc"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/episodes/search",
+            "description": "Search episodes by title or description",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "q",
+                  "type": "string",
+                  "required": true,
+                  "description": "Search query"
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 20,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number",
+                "query": "string"
+              }
+            },
+            "source_file": "backend/src/routes/episodeRoutes.js:29",
+            "notes": "Case-insensitive regex search, filters by is_available: true"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/episodes/anime/:animeId",
+            "description": "Get episodes by anime ID or slug",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 50,
+                  "required": false
+                }
+              ],
+              "params": [
+                {
+                  "name": "animeId",
+                  "type": "string",
+                  "description": "Anime ID or slug"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "pagination": {
+                  "current_page": "number",
+                  "per_page": "number",
+                  "total": "number",
+                  "total_pages": "number"
+                },
+                "anime_info": {
+                  "id": "string",
+                  "title": "string",
+                  "slug": "string"
+                }
+              }
+            },
+            "source_file": "backend/src/routes/episodeRoutes.js:61",
+            "notes": "Accepts both ID and slug, sorts by episode_number: 1"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/episodes/anime/slug/:slug",
+            "description": "Get episodes by anime slug (alternative route)",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 50,
+                  "required": false
+                }
+              ],
+              "params": [
+                {
+                  "name": "slug",
+                  "type": "string",
+                  "description": "Anime slug"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "pagination": {
+                  "current_page": "number",
+                  "per_page": "number",
+                  "total": "number",
+                  "total_pages": "number"
+                },
+                "anime_info": {
+                  "id": "string",
+                  "title": "string",
+                  "slug": "string"
+                }
+              }
+            },
+            "source_file": "backend/src/routes/episodeRoutes.js:108",
+            "notes": "Dedicated slug route, sorts by episode_number: 1"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/episodes/anime/:animeId/episode/:episodeNumber",
+            "description": "Get specific episode by anime ID and episode number",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": [
+                {
+                  "name": "animeId",
+                  "type": "string",
+                  "description": "Anime ID or slug"
+                },
+                {
+                  "name": "episodeNumber",
+                  "type": "number",
+                  "description": "Episode number"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "object"
+              }
+            },
+            "source_file": "backend/src/routes/episodeRoutes.js:153",
+            "notes": "Increments view_count, populates anime info"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/episodes/:id",
+            "description": "Get episode by ID",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": [
+                {
+                  "name": "id",
+                  "type": "string",
+                  "description": "Episode ID"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "object"
+              }
+            },
+            "source_file": "backend/src/routes/episodeRoutes.js:195",
+            "notes": "Increments view_count, populates anime info"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/episodes",
+            "description": "Get all episodes with filters, sorting and pagination",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 20,
+                  "required": false
+                },
+                {
+                  "name": "sort",
+                  "type": "string",
+                  "default": "air_date",
+                  "required": false
+                },
+                {
+                  "name": "order",
+                  "type": "string",
+                  "default": "desc",
+                  "required": false
+                },
+                {
+                  "name": "anime_id",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "genre",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "status",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "quality",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "subtitle_type",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "is_available",
+                  "type": "boolean",
+                  "default": true,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number",
+                "pagination": {
+                  "current_page": "number",
+                  "per_page": "number",
+                  "total": "number",
+                  "total_pages": "number"
+                },
+                "filters": "object"
+              }
+            },
+            "source_file": "backend/src/routes/episodeRoutes.js:222",
+            "notes": "Advanced filtering, sorting, pagination, genre filtering by anime"
+          }
+        ]
+      },
+      "anime": {
+        "description": "Routes pour la gestion des animes",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v1/anime",
+            "description": "Get all animes with filters, sorting and pagination",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 20,
+                  "required": false
+                },
+                {
+                  "name": "sort",
+                  "type": "string",
+                  "default": "createdAt",
+                  "required": false
+                },
+                {
+                  "name": "order",
+                  "type": "string",
+                  "default": "desc",
+                  "required": false
+                },
+                {
+                  "name": "genre",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "status",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "type",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "year",
+                  "type": "number",
+                  "required": false
+                },
+                {
+                  "name": "season",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "studio",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "search",
+                  "type": "string",
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number",
+                "pagination": "object",
+                "filters": "object"
+              }
+            },
+            "source_file": "backend/src/routes/animeRoutes.js:13"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/anime/trending",
+            "description": "Get trending animes",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 10,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number"
+              }
+            },
+            "source_file": "backend/src/routes/animeRoutes.js:84",
+            "notes": "Sorts by view_count desc, rating desc"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/anime/featured",
+            "description": "Get featured animes",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 10,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number"
+              }
+            },
+            "source_file": "backend/src/routes/animeRoutes.js:103",
+            "notes": "Filters by is_featured: true"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/anime/slug/:slug",
+            "description": "Get anime by slug",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": [
+                {
+                  "name": "slug",
+                  "type": "string",
+                  "description": "Anime slug"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "object"
+              }
+            },
+            "source_file": "backend/src/routes/animeRoutes.js:155",
+            "notes": "Case-insensitive slug search, populates genres, studio, episodes_count"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/anime/slug/:slug/episodes",
+            "description": "Get episodes by anime slug",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 50,
+                  "required": false
+                }
+              ],
+              "params": [
+                {
+                  "name": "slug",
+                  "type": "string",
+                  "description": "Anime slug"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "pagination": "object",
+                "anime_info": "object"
+              }
+            },
+            "source_file": "backend/src/routes/animeRoutes.js:206",
+            "notes": "Filters by is_available: true, sorts by episode_number: 1"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/anime/id/:id",
+            "description": "Get anime by ID",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": [
+                {
+                  "name": "id",
+                  "type": "string",
+                  "description": "Anime ID (ObjectId)"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "object"
+              }
+            },
+            "source_file": "backend/src/routes/animeRoutes.js:263",
+            "notes": "Populates genres, studio, episodes_count"
+          }
+        ]
+      },
+      "search": {
+        "description": "Routes pour la recherche",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v1/search",
+            "description": "Search animes with advanced filters",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "q",
+                  "type": "string",
+                  "required": true,
+                  "description": "Search query"
+                },
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 20,
+                  "required": false
+                },
+                {
+                  "name": "genre",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "status",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "type",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "year",
+                  "type": "number",
+                  "required": false
+                },
+                {
+                  "name": "season",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "studio",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "sort",
+                  "type": "string",
+                  "default": "relevance",
+                  "required": false
+                },
+                {
+                  "name": "order",
+                  "type": "string",
+                  "default": "desc",
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number",
+                "pagination": "object",
+                "query": "string",
+                "filters": "object"
+              }
+            },
+            "source_file": "backend/src/routes/searchRoutes.js:9",
+            "notes": "Full-text search with MongoDB text index, relevance scoring"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/search/suggestions",
+            "description": "Get search suggestions based on query",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "q",
+                  "type": "string",
+                  "required": true,
+                  "description": "Partial search query"
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 10,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number",
+                "query": "string"
+              }
+            },
+            "source_file": "backend/src/routes/searchRoutes.js:137",
+            "notes": "Autocomplete suggestions, case-insensitive regex search"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/search/slug/:slug",
+            "description": "Search anime by exact slug match",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": [
+                {
+                  "name": "slug",
+                  "type": "string",
+                  "description": "Exact anime slug"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number"
+              }
+            },
+            "source_file": "backend/src/routes/searchRoutes.js:196",
+            "notes": "Exact slug match, useful for direct links"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/search/slug-suggestions",
+            "description": "Get slug suggestions for anime titles",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "title",
+                  "type": "string",
+                  "required": true,
+                  "description": "Anime title"
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 5,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number"
+              }
+            },
+            "source_file": "backend/src/routes/searchRoutes.js:229",
+            "notes": "Generates slug suggestions from title"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/search/generate-slug",
+            "description": "Generate a unique slug from anime title",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "title",
+                  "type": "string",
+                  "required": true,
+                  "description": "Anime title"
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": {
+                  "slug": "string",
+                  "is_unique": "boolean"
+                }
+              }
+            },
+            "source_file": "backend/src/routes/searchRoutes.js:266",
+            "notes": "Generates unique slug, checks for conflicts"
+          }
+        ]
+      },
+      "users": {
+        "description": "Routes pour la gestion des utilisateurs",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v1/users/profile",
+            "description": "Get user profile",
+            "access": "Private",
+            "middlewares": ["auth"],
+            "parameters": {
+              "query": [],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "object"
+              }
+            },
+            "source_file": "backend/src/routes/userRoutes.js:7",
+            "notes": "Requires authentication, returns user profile data"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/users/watchlist",
+            "description": "Get user watchlist",
+            "access": "Private",
+            "middlewares": ["auth"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 20,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number",
+                "pagination": "object"
+              }
+            },
+            "source_file": "backend/src/routes/userRoutes.js:45",
+            "notes": "Requires authentication, returns user's watchlist"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/users/history",
+            "description": "Get user watch history",
+            "access": "Private",
+            "middlewares": ["auth"],
+            "parameters": {
+              "query": [
+                {
+                  "name": "page",
+                  "type": "number",
+                  "default": 1,
+                  "required": false
+                },
+                {
+                  "name": "limit",
+                  "type": "number",
+                  "default": 20,
+                  "required": false
+                }
+              ],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number",
+                "pagination": "object"
+              }
+            },
+            "source_file": "backend/src/routes/userRoutes.js:102",
+            "notes": "Requires authentication, returns user's watch history"
+          }
+        ]
+      },
+      "genres": {
+        "description": "Routes pour la gestion des genres",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v1/genres",
+            "description": "Get all genres",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number"
+              }
+            },
+            "source_file": "backend/src/routes/genreRoutes.js:9"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/genres/:id",
+            "description": "Get genre by ID",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": [
+                {
+                  "name": "id",
+                  "type": "string",
+                  "description": "Genre ID"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "object"
+              }
+            },
+            "source_file": "backend/src/routes/genreRoutes.js:23"
+          }
+        ]
+      },
+      "studios": {
+        "description": "Routes pour la gestion des studios",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v1/studios",
+            "description": "Get all studios",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": []
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "array",
+                "count": "number"
+              }
+            },
+            "source_file": "backend/src/routes/studioRoutes.js:7"
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/studios/:id",
+            "description": "Get studio by ID",
+            "access": "Public",
+            "middlewares": ["asyncHandler"],
+            "middlewares": ["asyncHandler"],
+            "parameters": {
+              "query": [],
+              "params": [
+                {
+                  "name": "id",
+                  "type": "string",
+                  "description": "Studio ID"
+                }
+              ]
+            },
+            "response": {
+              "status": 200,
+              "format": "JSON",
+              "structure": {
+                "success": "boolean",
+                "message": "string",
+                "data": "object"
+              }
+            },
+            "source_file": "backend/src/routes/studioRoutes.js:26"
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "total_direct_routes": 6,
+    "total_api_routes": 25,
+    "total_routes": 31,
+    "routes_by_category": {
+      "episodes": 7,
+      "anime": 6,
+      "search": 5,
+      "users": 3,
+      "genres": 2,
+      "studios": 2
+    },
+    "access_levels": {
+      "public": 28,
+      "private": 3
+    },
+    "middlewares_used": {
+      "asyncHandler": 22,
+      "auth": 3,
+      "none": 6
+    }
+  }
+}
+

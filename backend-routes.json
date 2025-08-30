@@ -1,0 +1,326 @@
+{
+  "totalRoutes": 53,
+  "apiVersion": "v1",
+  "baseUrl": "/api/v1",
+  "routes": [
+    {
+      "method": "DELETE",
+      "path": "/:id",
+      "fullPath": "/api/v1/:id",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "DELETE",
+      "path": "/id/:id",
+      "fullPath": "/api/v1/id/:id",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "DELETE",
+      "path": "/watchlist/:animeId",
+      "fullPath": "/api/v1/watchlist/:animeId",
+      "file": "userRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "genreRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "searchRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "studioRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/:id",
+      "fullPath": "/api/v1/:id",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/:id",
+      "fullPath": "/api/v1/:id",
+      "file": "genreRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/:id",
+      "fullPath": "/api/v1/:id",
+      "file": "studioRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/anime/:animeId",
+      "fullPath": "/api/v1/anime/:animeId",
+      "file": "commentRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/anime/:animeId",
+      "fullPath": "/api/v1/anime/:animeId",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/anime/:animeId/episode/:episodeNumber",
+      "fullPath": "/api/v1/anime/:animeId/episode/:episodeNumber",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/anime/:animeId/episode/:episodeNumber",
+      "fullPath": "/api/v1/anime/:animeId/episode/:episodeNumber",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/anime/slug/:slug",
+      "fullPath": "/api/v1/anime/slug/:slug",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/api-docs",
+      "fullPath": "/api-docs",
+      "file": "server.js"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard",
+      "fullPath": "/api/v1/dashboard",
+      "file": "adminRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/episode/:episodeId",
+      "fullPath": "/api/v1/episode/:episodeId",
+      "file": "streamRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/featured",
+      "fullPath": "/api/v1/featured",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/generate-slug",
+      "fullPath": "/api/v1/generate-slug",
+      "file": "searchRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/history",
+      "fullPath": "/api/v1/history",
+      "file": "userRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/id/:id",
+      "fullPath": "/api/v1/id/:id",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/latest",
+      "fullPath": "/api/v1/latest",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/profile",
+      "fullPath": "/api/v1/profile",
+      "file": "userRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/search",
+      "fullPath": "/api/v1/search",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/slug-suggestions",
+      "fullPath": "/api/v1/slug-suggestions",
+      "file": "searchRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/slug/:slug",
+      "fullPath": "/api/v1/slug/:slug",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/slug/:slug",
+      "fullPath": "/api/v1/slug/:slug",
+      "file": "searchRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/slug/:slug/episodes",
+      "fullPath": "/api/v1/slug/:slug/episodes",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/stats",
+      "fullPath": "/api/v1/stats",
+      "file": "analyticsRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/suggestions",
+      "fullPath": "/api/v1/suggestions",
+      "file": "searchRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/trending",
+      "fullPath": "/api/v1/trending",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/users",
+      "fullPath": "/api/v1/users",
+      "file": "adminRoutes.js"
+    },
+    {
+      "method": "GET",
+      "path": "/watchlist",
+      "fullPath": "/api/v1/watchlist",
+      "file": "userRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "commentRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/",
+      "fullPath": "/api/v1/",
+      "file": "genreRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/create-intent",
+      "fullPath": "/api/v1/create-intent",
+      "file": "paymentRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/image",
+      "fullPath": "/api/v1/image",
+      "file": "uploadRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "fullPath": "/api/v1/login",
+      "file": "authRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/logout",
+      "fullPath": "/api/v1/logout",
+      "file": "authRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/refresh",
+      "fullPath": "/api/v1/refresh",
+      "file": "authRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/register",
+      "fullPath": "/api/v1/register",
+      "file": "authRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/report",
+      "fullPath": "/api/v1/report",
+      "file": "streamRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/video",
+      "fullPath": "/api/v1/video",
+      "file": "uploadRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/view",
+      "fullPath": "/api/v1/view",
+      "file": "analyticsRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/watchlist",
+      "fullPath": "/api/v1/watchlist",
+      "file": "userRoutes.js"
+    },
+    {
+      "method": "POST",
+      "path": "/webhook",
+      "fullPath": "/api/v1/webhook",
+      "file": "paymentRoutes.js"
+    },
+    {
+      "method": "PUT",
+      "path": "/:id",
+      "fullPath": "/api/v1/:id",
+      "file": "episodeRoutes.js"
+    },
+    {
+      "method": "PUT",
+      "path": "/id/:id",
+      "fullPath": "/api/v1/id/:id",
+      "file": "animeRoutes.js"
+    },
+    {
+      "method": "PUT",
+      "path": "/profile",
+      "fullPath": "/api/v1/profile",
+      "file": "userRoutes.js"
+    }
+  ],
+  "timestamp": "2025-08-28T23:59:42.448Z"
+}

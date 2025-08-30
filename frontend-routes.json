@@ -1,0 +1,448 @@
+{
+  "totalRoutes": 63,
+  "totalFiles": 44,
+  "routes": [
+    {
+      "method": "GET",
+      "url": "      - /api/v1/anime/id/${id} (route API)",
+      "type": "api_service",
+      "file": "test-api-calls.js",
+      "line": 106
+    },
+    {
+      "method": "GET",
+      "url": "      - /api/v1/anime/slug/${slug} (route API)",
+      "type": "api_service",
+      "file": "test-api-calls.js",
+      "line": 105
+    },
+    {
+      "method": "GET",
+      "url": "   ✅ /api/v1/anime/id/${id} → Route API par ID",
+      "type": "api_service",
+      "file": "test-api-calls.js",
+      "line": 86
+    },
+    {
+      "method": "GET",
+      "url": "   ✅ /api/v1/anime/slug/${slug} → Route API par slug",
+      "type": "api_service",
+      "file": "test-api-calls.js",
+      "line": 85
+    },
+    {
+      "method": "GET",
+      "url": "\\n2️⃣ Test GET /api/v1/episodes/search?q=demon",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 31
+    },
+    {
+      "method": "GET",
+      "url": "\\n3️⃣ Test GET /api/v1/episodes/anime/slug/:slug",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 47
+    },
+    {
+      "method": "GET",
+      "url": "\\n4️⃣ Test GET /api/v1/episodes/anime/:animeId",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 64
+    },
+    {
+      "method": "GET",
+      "url": "\\n5️⃣ Test GET /api/v1/episodes/anime/:animeId/episode/:episodeNumber",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 81
+    },
+    {
+      "method": "GET",
+      "url": "\\n6️⃣ Test GET /api/v1/episodes (avec filtres)",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 98
+    },
+    {
+      "method": "GET",
+      "url": "\\n7️⃣ Test GET /api/v1/anime/slug/:slug",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 115
+    },
+    {
+      "method": "GET",
+      "url": "\\n8️⃣ Test GET /api/v1/anime/id/:id",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 132
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/anime",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 17
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/anime/${animeId}/episodes",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 29
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/anime/${identifier}",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 22
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/anime/featured",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 19
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/anime/id/${id}",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 21
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/anime/slug/${slug}",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 20
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/anime/trending",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 18
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/auth/login",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 9
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/auth/logout",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 12
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/auth/refresh",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 11
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/auth/register",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 10
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/episodes",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 27
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/episodes?sort=air_date&order=desc",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 30
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/episodes/${id}",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 28
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/episodes/anime/${animeId}",
+      "type": "api_service",
+      "file": "apiRoutes.ts",
+      "line": 46
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/episodes/anime/${animeId}/episode/${episodeNumber}",
+      "type": "api_service",
+      "file": "apiRoutes.ts",
+      "line": 48
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/episodes/anime/slug/${slug}",
+      "type": "api_service",
+      "file": "apiRoutes.ts",
+      "line": 47
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/episodes/latest",
+      "type": "api_service",
+      "file": "apiRoutes.ts",
+      "line": 49
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/genres",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 51
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/search",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 35
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/search/generate-slug",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 39
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/search/slug-suggestions",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 38
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/search/slug/${slug}",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 37
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/search/suggestions",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 36
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/studios",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 56
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/users/history",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 46
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/users/profile",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 44
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE_URL}/api/${API_VERSION}/users/watchlist",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 45
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/anime/${ANIME_ID}/episodes",
+      "type": "fetch",
+      "file": "test-api-calls.js",
+      "line": 31
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/anime/${ANIME_SLUG}/episodes",
+      "type": "fetch",
+      "file": "test-api-calls.js",
+      "line": 12
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/anime/${testSlug}/episodes",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 158
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/anime/id/${testId}",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 134
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/anime/slug/${testSlug}",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 117
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/episodes?limit=5&sort=air_date&order=desc",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 100
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/episodes/anime/${testId}",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 66
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/episodes/anime/${testSlug}/episode/1",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 83
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/episodes/anime/slug/${testSlug}",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 49
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/episodes/latest",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 17
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/${API_VERSION}/episodes/search?q=demon",
+      "type": "fetch",
+      "file": "test-migration-backend-routes.js",
+      "line": 33
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/v1/anime/id/${ANIME_ID}",
+      "type": "fetch",
+      "file": "test-api-calls.js",
+      "line": 67
+    },
+    {
+      "method": "GET",
+      "url": "${API_BASE}/api/v1/anime/slug/${ANIME_SLUG}",
+      "type": "fetch",
+      "file": "test-api-calls.js",
+      "line": 50
+    },
+    {
+      "method": "GET",
+      "url": "1️⃣ Test GET /api/v1/episodes/latest",
+      "type": "api_service",
+      "file": "test-migration-backend-routes.js",
+      "line": 15
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/anime/id/:id",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 102
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/anime/slug/:slug",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 96
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/episodes (avec filtres)",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 90
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/episodes/anime/:animeId",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 78
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/episodes/anime/:animeId/episode/:episodeNumber",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 84
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/episodes/anime/slug/:slug",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 72
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/episodes/latest",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 60
+    },
+    {
+      "method": "GET",
+      "url": "GET /api/v1/episodes/search?q=demon",
+      "type": "api_service",
+      "file": "BackendRoutesTest.tsx",
+      "line": 66
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/episodes/anime/${animeId}",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 275
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/episodes/anime/slug/${animeId}",
+      "type": "api_service",
+      "file": "api.ts",
+      "line": 272
+    }
+  ],
+  "timestamp": "2025-08-28T23:59:42.481Z"
+}

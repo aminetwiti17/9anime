@@ -1,0 +1,283 @@
+/* ===== COMPOSANTS AMÉLIORÉS ===== */
+
+/* Sidebar Styles */
+.sidebar {
+  @apply bg-dark-800 border-l border-dark-700;
+}
+
+.sidebar-section {
+  @apply bg-dark-700 rounded-xl p-4;
+}
+
+.sidebar-title {
+  @apply text-lg font-bold text-white flex items-center gap-2;
+}
+
+.top-anime-item {
+  @apply flex items-center gap-3 p-2 rounded-lg hover:bg-dark-600 transition-all duration-200;
+}
+
+.anime-rank {
+  @apply w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-sm;
+}
+
+.anime-thumbnail {
+  @apply w-12 h-16 object-cover rounded-lg;
+}
+
+.anime-info {
+  @apply flex-1 min-w-0;
+}
+
+.anime-title {
+  @apply text-sm font-semibold text-white truncate;
+}
+
+.anime-meta {
+  @apply flex items-center gap-2 text-xs text-gray-400;
+}
+
+.genres-grid {
+  @apply grid grid-cols-2 gap-2;
+}
+
+.genre-tag {
+  @apply flex items-center justify-between p-2 rounded-lg bg-dark-600 hover:bg-dark-500 transition-all duration-200 group;
+}
+
+.genre-name {
+  @apply text-sm text-gray-300 group-hover:text-white transition-colors;
+}
+
+.genre-count {
+  @apply text-xs text-gray-500 bg-dark-700 px-2 py-1 rounded-full;
+}
+
+.stats-grid {
+  @apply grid grid-cols-3 gap-3;
+}
+
+.stat-item {
+  @apply text-center p-3 bg-dark-600 rounded-lg;
+}
+
+.stat-number {
+  @apply text-2xl font-bold text-primary-400;
+}
+
+.stat-label {
+  @apply text-xs text-gray-400;
+}
+
+/* AnimeCard Enhanced Styles */
+.anime-card {
+  @apply group relative bg-dark-800 rounded-lg overflow-hidden transition-all duration-300;
+}
+
+.anime-card.compact {
+  @apply hover:scale-105;
+}
+
+.anime-card.featured {
+  @apply hover:scale-105 hover:shadow-2xl hover:shadow-primary-500/30;
+}
+
+.anime-image-container {
+  @apply relative overflow-hidden;
+}
+
+.anime-image {
+  @apply w-full object-cover transition-transform duration-300 group-hover:scale-110;
+}
+
+.anime-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.anime-badges {
+  @apply absolute top-2 left-2 flex flex-col gap-1;
+}
+
+.badge {
+  @apply px-2 py-1 rounded-lg text-xs font-bold shadow-lg;
+}
+
+.status-badge {
+  @apply text-white;
+}
+
+.type-badge {
+  @apply text-white;
+}
+
+.season-badge {
+  @apply text-white;
+}
+
+.anime-rating-badge {
+  @apply absolute bottom-2 left-2 bg-black/80 backdrop-blur-sm text-white px-2 py-1 rounded-lg text-xs font-bold;
+}
+
+.audio-badges {
+  @apply absolute top-2 right-2 flex gap-1;
+}
+
+.audio-badge {
+  @apply px-2 py-1 rounded-lg text-xs font-bold shadow-lg;
+}
+
+.audio-badge.sub {
+  @apply bg-gradient-to-r from-purple-500 to-purple-600 text-white;
+}
+
+.audio-badge.dub {
+  @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white;
+}
+
+.anime-content {
+  @apply p-3 sm:p-4;
+}
+
+.anime-title {
+  @apply text-white font-semibold text-sm sm:text-base lg:text-lg mb-2 hover:text-primary-400 transition-colors line-clamp-2 leading-tight;
+}
+
+.anime-meta {
+  @apply space-y-2 mb-3;
+}
+
+.meta-row {
+  @apply flex items-center text-gray-400 text-xs sm:text-sm;
+}
+
+.meta-item {
+  @apply flex items-center;
+}
+
+.meta-icon {
+  @apply mr-1 flex-shrink-0;
+}
+
+.last-episode {
+  @apply flex items-center text-green-400 text-xs;
+}
+
+.anime-genres {
+  @apply flex flex-wrap gap-1 mb-3;
+}
+
+.genre-tag {
+  @apply bg-dark-700 text-primary-400 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded text-xs;
+}
+
+.genre-more {
+  @apply bg-dark-700 text-gray-400 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded text-xs;
+}
+
+.anime-actions {
+  @apply flex gap-2;
+}
+
+.btn {
+  @apply px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-primary-600 hover:bg-primary-700 text-white hover:shadow-lg hover:shadow-primary-500/25;
+}
+
+.btn-secondary {
+  @apply bg-dark-600 hover:bg-dark-500 text-gray-300 hover:text-white;
+}
+
+/* Grid Optimizations */
+.anime-grid-dense {
+  @apply grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 sm:gap-3;
+}
+
+.anime-grid-compact {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4;
+}
+
+.anime-grid-default {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4;
+}
+
+/* Enhanced Typography */
+.text-gradient {
+  @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth Animations */
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25;
+}
+
+/* Responsive Improvements */
+@media (max-width: 640px) {
+  .anime-grid-dense {
+    @apply grid-cols-2 gap-2;
+  }
+  
+  .anime-grid-compact {
+    @apply grid-cols-2 gap-2;
+  }
+  
+  .anime-grid-default {
+    @apply grid-cols-2 gap-2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .anime-grid-dense {
+    @apply grid-cols-8 gap-3;
+  }
+  
+  .anime-grid-compact {
+    @apply grid-cols-6 gap-4;
+  }
+  
+  .anime-grid-default {
+    @apply grid-cols-6 gap-4;
+  }
+}
+
+/* Dark Theme Enhancements */
+.dark-theme {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --bg-tertiary: #333333;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --text-tertiary: #9ca3af;
+  --accent-primary: #7c3aed;
+  --accent-secondary: #8b5cf6;
+  --border-primary: #374151;
+  --border-secondary: #4b5563;
+}
+
+/* Focus States for Accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-dark-800;
+}
+
+/* Loading States */
+.skeleton {
+  @apply animate-pulse bg-dark-600 rounded;
+}
+
+.skeleton-text {
+  @apply skeleton h-4 rounded;
+}
+
+.skeleton-image {
+  @apply skeleton w-full h-48 sm:h-56 md:h-64 rounded-t-lg;
+}

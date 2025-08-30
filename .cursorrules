@@ -1,0 +1,43 @@
+# Configuration Cursor avec intégration MCP Puppeteer
+
+## Intégration MCP (Model Context Protocol)
+
+### Serveur Puppeteer MCP
+Le projet intègre un serveur MCP qui expose les fonctionnalités de Puppeteer pour l'automatisation web.
+
+**Fonctionnalités disponibles :**
+- `launch_browser` : Lance un navigateur Chrome/Firefox
+- `new_page` : Crée une nouvelle page
+- `navigate` : Navigue vers une URL
+- `screenshot` : Prend une capture d'écran
+- `extract_text` : Extrait du texte d'un élément
+- `click_element` : Clique sur un élément
+- `type_text` : Saisit du texte dans un champ
+- `wait_for_element` : Attend qu'un élément soit présent
+- `close_browser` : Ferme le navigateur
+
+**Utilisation dans Cursor :**
+Le serveur MCP est accessible via le protocole stdio et peut être utilisé pour :
+- Automatiser des tests web
+- Extraire des données de sites web
+- Générer des captures d'écran
+- Automatiser des tâches de navigation
+
+### Structure du projet
+```
+backend/
+├── src/
+│   ├── puppeteer-mcp-server.js  # Serveur MCP principal
+│   └── server.js                # Serveur Express principal
+├── package.json                 # Dépendances incluant Puppeteer et MCP SDK
+└── node_modules/
+```
+
+### Démarrage du serveur MCP
+```bash
+cd backend
+node src/puppeteer-mcp-server.js
+```
+
+### Intégration avec Cursor
+Pour utiliser le serveur MCP dans Cursor, configurez-le dans vos paramètres MCP ou utilisez-le directement via l'API.
